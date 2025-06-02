@@ -1,5 +1,5 @@
 function handleMenuCommand(client, message) {
-  const menuText = `
+  const messageText = `
 📜 *DAFTAR PERINTAH BOT* 📜
 
 !testprivate - Tes koneksi bot
@@ -8,7 +8,7 @@ function handleMenuCommand(client, message) {
 !menu        - Tampilkan daftar perintah ini
 `;
 
-  client.sendMessage(message.from, menuText);
+  client.sendMessage(message.from, messageText);
 }
 
 module.exports = handleMenuCommand;

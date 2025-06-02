@@ -3,6 +3,8 @@ const qrcode = require("qrcode-terminal");
 
 const handleNekoCommand = require("./handlers/nekoHandler");
 const handleMenuCommand = require("./handlers/menuHandler");
+const handlePingCommand = require("./handlers/pingHandler");
+const handleKucinkCommand = require("./handlers/kucinkHandler");
 
 const client = new Client({
   authStrategy: new LocalAuth({
@@ -26,15 +28,10 @@ client.on("qr", (qr) => {
 client.on("message_create", async (message) => {
   const msg = message.body.trim().toLowerCase();
 
-  if (msg === "!testprivate") {
-    client.sendMessage(message.from, "pong");
-  } else if (msg === "!kucink") {
-    client.sendMessage(message.from, "Bakekok cukurukuk onde mande abcd");
-  } else if (msg === "!neko") {
-    await handleNekoCommand(client, message);
-  } else if (msg === "!menu") {
-    handleMenuCommand(client, message);
-  }
+  if (msg === "!testprivate") return handlePingCommand(client, message);
+  if (msg === "!kucink") return handleKucinkCommand(client, message);
+  if (msg === "!neko") return await handleNekoCommand(client, message);
+  if (msg === "!menu") return handleMenuCommand(client, message);
 });
 
 client.initialize();
