@@ -23,7 +23,7 @@ Make sure your system has installed:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/namamu/wa-personal-bot.git
+git clone https://github.com/bagoesrex/wa-personal-bot.git
 cd wa-personal-bot
 ```
 
