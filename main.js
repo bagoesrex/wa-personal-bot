@@ -2,6 +2,7 @@ const { Client, LocalAuth } = require("whatsapp-web.js");
 const qrcode = require("qrcode-terminal");
 
 const handleNekoCommand = require("./handlers/nekoHandler");
+const handleMenuCommand = require("./handlers/menuHandler");
 
 const client = new Client({
   authStrategy: new LocalAuth({
@@ -31,6 +32,8 @@ client.on("message_create", async (message) => {
     client.sendMessage(message.from, "Bakekok cukurukuk onde mande abcd");
   } else if (msg === "!neko") {
     await handleNekoCommand(client, message);
+  } else if (msg === "!menu") {
+    handleMenuCommand(client, message);
   }
 });
 
