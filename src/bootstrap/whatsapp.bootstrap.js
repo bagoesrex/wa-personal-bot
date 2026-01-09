@@ -1,19 +1,29 @@
 import qrcodePkg from "qrcode-terminal";
 import { createWhatsappClient } from "../clients/whatsapp.client.js";
+import { WHATSAPP_EVENTS } from "../constants/events.js";
 
 export function initWhatsapp(whatsappConfig) {
   const client = createWhatsappClient(whatsappConfig);
 
-  client.on("qr", (qr) => {
+  client.on(WHATSAPP_EVENTS.QR, (qr) => {
     console.log("📱 Scan QR Code:");
     qrcodePkg.generate(qr, { small: true });
   });
 
-  client.on("ready", () => {
+  client.once(WHATSAPP_EVENTS.AUTH_FAILURE, (message) => {
+    console.error("❌ Auth failure:", message);
+    console.error("Please re-scan QR code");
+  });
+
+  client.once(WHATSAPP_EVENTS.READY, () => {
     console.log("✅ client is ready");
   });
 
-  client.on("message", async (message) => {
+  client.on(WHATSAPP_EVENTS.DISCONNECTED, () => {
+    console.warn("⚠️ Client is disconnected");
+  });
+
+  client.on(WHATSAPP_EVENTS.MESSAGE, async (message) => {
     console.log(message.body);
   });
 
