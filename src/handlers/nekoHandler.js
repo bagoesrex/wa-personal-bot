@@ -12,10 +12,7 @@ async function handleNekoCommand(client, message) {
     await client.sendMessage(message.from, media, { caption: "Keonk~ 😸" });
   } catch (error) {
     console.error("❌ Error saat ambil gambar neko:", error.message);
-    client.sendMessage(
-      message.from,
-      "Gagal ambil gambar neko. Coba lagi nanti!"
-    );
+    client.sendMessage(message.from, "Gagal ambil gambar neko. Coba lagi nanti!");
   }
 }
 

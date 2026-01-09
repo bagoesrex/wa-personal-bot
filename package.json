@@ -2,10 +2,11 @@
   "name": "wa-personal-bot",
   "version": "1.0.0",
   "type": "module",
-  "main": "main.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node .",
+    "format": "prettier --write **/*.js",
+    "format:check": "prettier --check **/*.js"
   },
   "keywords": [],
   "author": "",
