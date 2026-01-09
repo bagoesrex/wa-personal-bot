@@ -5,22 +5,21 @@ import handleNekoCommand from "./handlers/nekoHandler.js";
 import handleMenuCommand from "./handlers/menuHandler.js";
 import handlePingCommand from "./handlers/pingHandler.js";
 import handleKucinkCommand from "./handlers/kucinkHandler.js";
+import config from "./config/config.js";
 
 const { Client, LocalAuth } = wwebjs;
 const { generate } = qrcode;
 
 const client = new Client({
   authStrategy: new LocalAuth({
-    dataPath: "./session",
+    dataPath: config.whatsapp.auth.sessionPath,
   }),
-  puppeteer: {
-    headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  },
+  deviceName: config.whatsapp.deviceName,
+  puppeteer: config.whatsapp.puppeteer,
 });
 
 client.once("ready", () => {
-  console.log("✅ Client is ready!");
+  console.log(`✅ ${config.app.name} is ready!`);
 });
 
 client.on("qr", (qr) => {
