@@ -4,4 +4,4 @@ function handleKucinkCommand(client, message) {
   client.sendMessage(message.from, messageText);
 }
 
-module.exports = handleKucinkCommand;
+export default handleKucinkCommand;

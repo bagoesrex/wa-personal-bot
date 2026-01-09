@@ -1,5 +1,7 @@
-const axios = require("axios");
-const { MessageMedia } = require("whatsapp-web.js");
+import axios from "axios";
+import wwebjs from "whatsapp-web.js";
+
+const { MessageMedia } = wwebjs;
 
 async function handleNekoCommand(client, message) {
   try {
@@ -17,4 +19,4 @@ async function handleNekoCommand(client, message) {
   }
 }
 
-module.exports = handleNekoCommand;
+export default handleNekoCommand;

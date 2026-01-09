@@ -4,4 +4,4 @@ function handlePingCommand(client, message) {
   client.sendMessage(message.from, messageText);
 }
 
-module.exports = handlePingCommand;
+export default handlePingCommand;

@@ -11,4 +11,4 @@ function handleMenuCommand(client, message) {
   client.sendMessage(message.from, messageText);
 }
 
-module.exports = handleMenuCommand;
+export default handleMenuCommand;

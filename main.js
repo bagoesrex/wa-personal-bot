@@ -1,10 +1,13 @@
-const { Client, LocalAuth } = require("whatsapp-web.js");
-const qrcode = require("qrcode-terminal");
+import wwebjs from "whatsapp-web.js";
+import qrcode from "qrcode-terminal";
 
-const handleNekoCommand = require("./handlers/nekoHandler");
-const handleMenuCommand = require("./handlers/menuHandler");
-const handlePingCommand = require("./handlers/pingHandler");
-const handleKucinkCommand = require("./handlers/kucinkHandler");
+import handleNekoCommand from "./handlers/nekoHandler.js";
+import handleMenuCommand from "./handlers/menuHandler.js";
+import handlePingCommand from "./handlers/pingHandler.js";
+import handleKucinkCommand from "./handlers/kucinkHandler.js";
+
+const { Client, LocalAuth } = wwebjs;
+const { generate } = qrcode;
 
 const client = new Client({
   authStrategy: new LocalAuth({
@@ -21,7 +24,7 @@ client.once("ready", () => {
 });
 
 client.on("qr", (qr) => {
-  qrcode.generate(qr, { small: true });
+  generate(qr, { small: true });
   console.log("🔐 QR code received, scan once!");
 });
 
