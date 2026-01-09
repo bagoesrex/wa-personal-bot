@@ -1,6 +1,8 @@
 import qrcodePkg from "qrcode-terminal";
 import { createWhatsappClient } from "../clients/whatsapp.client.js";
 import { WHATSAPP_EVENTS } from "../constants/events.js";
+import { validateMessage } from "../validators/message.schema.js";
+import { handleCommand } from "../handlers/index.js";
 
 export function initWhatsapp(whatsappConfig) {
   const client = createWhatsappClient(whatsappConfig);
@@ -25,6 +27,13 @@ export function initWhatsapp(whatsappConfig) {
 
   client.on(WHATSAPP_EVENTS.MESSAGE, async (message) => {
     console.log(message.body);
+  });
+
+  client.on(WHATSAPP_EVENTS.MESSAGE, async (message) => {
+    const validated = validateMessage(message);
+    if (!validated) return;
+
+    await handleCommand(validated.data, client);
   });
 
   return client.initialize();
