@@ -8,3 +8,8 @@ export const COMMANDS = {
   AI: "!ai",
   PRICE: "!price",
 };
+
+export const COMMAND_USAGE = {
+  [COMMANDS.AI]: "Contoh penggunaan:\n!ai halo",
+  [COMMANDS.PRICE]: "Contoh penggunaan:\n!price BTC",
+};

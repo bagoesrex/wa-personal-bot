@@ -1,5 +1,4 @@
-import { COMMANDS } from "../constants/commands.js";
-import { USAGE_MESSAGES } from "../constants/usage.js";
+import { COMMAND_USAGE, COMMANDS } from "../constants/commands.js";
 import { askGemini } from "../services/gemini.service.js";
 
 export async function geminiHandler(message, client) {
@@ -7,7 +6,7 @@ export async function geminiHandler(message, client) {
     const userPrompt = message.body.slice(COMMANDS.AI.length).trim().toUpperCase();
 
     if (!userPrompt) {
-      return client.sendMessage(message.from, USAGE_MESSAGES.AI);
+      return client.sendMessage(message.from, COMMAND_USAGE[COMMANDS.AI]);
     }
 
     const answer = await askGemini(userPrompt);
