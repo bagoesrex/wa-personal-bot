@@ -1,4 +1,5 @@
 import { COMMANDS } from "../constants/commands.js";
+import { geminiHandler } from "./gemini.handler.js";
 import { kucinkHandler } from "./kucink.handler.js";
 import { menuHandler } from "./menu.handler.js";
 import { nekoHandler } from "./neko.handler.js";
@@ -16,6 +17,8 @@ export async function handleCommand(message, client) {
       return menuHandler(message, client);
     case COMMANDS.KUCINK:
       return kucinkHandler(message, client);
+    case COMMANDS.AI:
+      return geminiHandler(message, client);
 
     default:
       return client.sendMessage(message.from, "Unknown Command");

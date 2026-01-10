@@ -14,6 +14,11 @@ const config = {
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     },
   },
+  gemini: {
+    apiKey: env.GEMINI_API_KEY,
+    model: env.GEMINI_MODEL,
+    baseUrl: "https://generativelanguage.googleapis.com/v1beta",
+  },
 };
 
 export default config;

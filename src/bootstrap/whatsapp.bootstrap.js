@@ -27,8 +27,6 @@ export function initWhatsapp(whatsappConfig) {
   });
 
   client.on(WHATSAPP_EVENTS.MESSAGE, async (message) => {
-    console.log(message.body);
-
     const validated = validateMessage(message);
     if (!validated) return;
 

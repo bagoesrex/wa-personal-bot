@@ -5,4 +5,5 @@ export const COMMANDS = {
   NEKO: "!neko",
   KUCINK: "!kucink",
   MENU: "!menu",
+  AI: "!ai",
 };
