@@ -22,6 +22,10 @@ const config = {
   nekos: {
     baseUrl: "https://nekos.life/api/v2/img/neko",
   },
+  coinmarketcap: {
+    apiKey: env.COINMARKETCAP_API_KEY,
+    baseUrl: "https://pro-api.coinmarketcap.com",
+  },
 };
 
 export default config;

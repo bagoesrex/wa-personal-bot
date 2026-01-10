@@ -8,6 +8,8 @@ const envSchema = z.object({
 
   GEMINI_API_KEY: z.string().min(1),
   GEMINI_MODEL: z.string().default("gemini-2.5-flash"),
+
+  COINMARKETCAP_API_KEY: z.string().min(1),
 });
 
 export const env = envSchema.parse(process.env);

@@ -1,4 +1,5 @@
 import { COMMANDS } from "../constants/commands.js";
+import { cryptoHandler } from "./crypto.handler.js";
 import { geminiHandler } from "./gemini.handler.js";
 import { kucinkHandler } from "./kucink.handler.js";
 import { menuHandler } from "./menu.handler.js";
@@ -19,6 +20,8 @@ export async function handleCommand(message, client) {
       return kucinkHandler(message, client);
     case COMMANDS.AI:
       return geminiHandler(message, client);
+    case COMMANDS.PRICE:
+      return cryptoHandler(message, client);
 
     default:
       return client.sendMessage(message.from, "Unknown Command");
