@@ -4,6 +4,7 @@ import { WHATSAPP_EVENTS } from "../constants/events.js";
 import { validateMessage } from "../validators/message.schema.js";
 import { handleCommand } from "../handlers/index.js";
 import { isCommand } from "../middlewares/command.middleware.js";
+import { isNewMessage } from "../middlewares/message.middleware.js";
 
 export function initWhatsapp(whatsappConfig) {
   const client = createWhatsappClient(whatsappConfig);
@@ -27,6 +28,8 @@ export function initWhatsapp(whatsappConfig) {
   });
 
   client.on(WHATSAPP_EVENTS.MESSAGE, async (message) => {
+    if (!isNewMessage(message)) return;
+
     const validated = validateMessage(message);
     if (!validated) return;
 
