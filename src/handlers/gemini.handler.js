@@ -1,5 +1,5 @@
 import { COMMANDS } from "../constants/commands.js";
-import { askGemini } from "../gemini/gemini.service.js";
+import { askGemini } from "../services/gemini.service.js";
 
 export async function geminiHandler(message, client) {
   try {

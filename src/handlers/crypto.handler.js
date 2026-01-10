@@ -1,5 +1,5 @@
 import { COMMANDS } from "../constants/commands.js";
-import { getLatestCryptoQuoteBySymbol } from "../gemini/coinmarketcap.service.js";
+import { getLatestCryptoQuoteBySymbol } from "../services/coinmarketcap.service.js";
 
 export async function cryptoHandler(message, client) {
   try {

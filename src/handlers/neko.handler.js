@@ -1,4 +1,4 @@
-import { getRandomNekoImage } from "../gemini/nekos.service.js";
+import { getRandomNekoImage } from "../services/nekos.service.js";
 import { createImageMediaFromUrl } from "../utils/messageMedia.js";
 
 export async function nekoHandler(message, client) {
