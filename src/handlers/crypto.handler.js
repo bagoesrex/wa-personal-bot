@@ -1,4 +1,5 @@
 import { COMMANDS } from "../constants/commands.js";
+import { USAGE_MESSAGES } from "../constants/usage.js";
 import { getLatestCryptoQuoteBySymbol } from "../services/coinmarketcap.service.js";
 
 export async function cryptoHandler(message, client) {
@@ -6,7 +7,7 @@ export async function cryptoHandler(message, client) {
     const symbolMessage = message.body.slice(COMMANDS.PRICE.length).trim().toUpperCase();
 
     if (!symbolMessage) {
-      return client.sendMessage(message.from, "Contoh penggunaan:\n!price BTC");
+      return client.sendMessage(message.from, USAGE_MESSAGES.PRICE);
     }
 
     const price = await getLatestCryptoQuoteBySymbol(symbolMessage);
