@@ -5,6 +5,7 @@ import { kucinkHandler } from "./kucink.handler.js";
 import { menuHandler } from "./menu.handler.js";
 import { nekoHandler } from "./neko.handler.js";
 import { pingHandler } from "./ping.handler.js";
+import { waifuHandler } from "./waifu.handler.js";
 
 export async function handleCommand(message, client) {
   const command = message.body.split(" ")[0];
@@ -22,6 +23,8 @@ export async function handleCommand(message, client) {
       return geminiHandler(message, client);
     case COMMANDS.PRICE:
       return cryptoHandler(message, client);
+    case COMMANDS.MYMINE:
+      return waifuHandler(message, client);
 
     default:
       return client.sendMessage(message.from, "Unknown Command");

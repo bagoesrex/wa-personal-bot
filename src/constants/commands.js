@@ -9,6 +9,7 @@ export const COMMANDS = {
   MENU: `${PREFIX}menu`,
   AI: `${PREFIX}ai`,
   PRICE: `${PREFIX}price`,
+  MYMINE: `${PREFIX}mymine`,
 };
 
 export const COMMAND_USAGE = {

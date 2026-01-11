@@ -26,6 +26,9 @@ const config = {
   nekos: {
     baseUrl: "https://nekos.life/api/v2/img/neko",
   },
+  waifu: {
+    baseUrl: "https://api.waifu.pics",
+  },
   coinmarketcap: {
     apiKey: env.COINMARKETCAP_API_KEY,
     baseUrl: "https://pro-api.coinmarketcap.com",
