@@ -1,12 +1,14 @@
-export const COMMAND_PREFIX = "!";
+import config from "../config/config.js";
+
+export const PREFIX = config.app.commandPrefix;
 
 export const COMMANDS = {
-  PING: "!ping",
-  NEKO: "!neko",
-  KUCINK: "!kucink",
-  MENU: "!menu",
-  AI: "!ai",
-  PRICE: "!price",
+  PING: `${PREFIX}ping`,
+  NEKO: `${PREFIX}neko`,
+  KUCINK: `${PREFIX}kucink`,
+  MENU: `${PREFIX}menu`,
+  AI: `${PREFIX}ai`,
+  PRICE: `${PREFIX}price`,
 };
 
 export const COMMAND_USAGE = {

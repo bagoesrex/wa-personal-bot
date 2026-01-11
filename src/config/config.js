@@ -1,8 +1,12 @@
 import { env } from "./env.js";
 
+const isDev = env.NODE_ENV === "development";
+
 const config = {
   app: {
     name: env.APP_NAME,
+    env: env.NODE_ENV,
+    commandPrefix: isDev ? "$" : "!",
   },
   whatsapp: {
     deviceName: env.WA_DEVICE_NAME,
