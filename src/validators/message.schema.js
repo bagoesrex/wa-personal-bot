@@ -1,10 +1,13 @@
 import { z } from "zod";
 
-const MessageSchema = z.object({
-  body: z.string(),
-  from: z.string(),
-  isGroupMsg: z.boolean().optional(),
-});
+const MessageSchema = z
+  .object({
+    body: z.string(),
+    from: z.string(),
+    hasMedia: z.boolean(),
+    isGroupMsg: z.boolean().optional(),
+  })
+  .passthrough();
 
 export function validateMessage(message) {
   const result = MessageSchema.safeParse(message);

@@ -10,6 +10,7 @@ export const COMMANDS = {
   AI: `${PREFIX}ai`,
   PRICE: `${PREFIX}price`,
   MYMINE: `${PREFIX}mymine`,
+  STICKER: `${PREFIX}sticker`,
 };
 
 export const COMMAND_USAGE = {

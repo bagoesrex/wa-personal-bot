@@ -29,13 +29,10 @@ export function initWhatsapp(whatsappConfig) {
 
   client.on(WHATSAPP_EVENTS.MESSAGE, async (message) => {
     if (!isNewMessage(message)) return;
+    if (!validateMessage(message)) return;
+    if (!isCommand(message)) return;
 
-    const validated = validateMessage(message);
-    if (!validated) return;
-
-    if (!isCommand(validated.data)) return;
-
-    await handleCommand(validated.data, client);
+    await handleCommand(message, client);
   });
 
   return client.initialize();

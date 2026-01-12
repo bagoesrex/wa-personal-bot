@@ -1,5 +1,5 @@
 import { getMeguminImage } from "../services/waifu.service.js";
-import { createImageMediaFromUrl } from "../utils/messageMedia.js";
+import { createImageMediaFromUrl } from "../utils/message.js";
 
 export async function waifuHandler(message, client) {
   try {

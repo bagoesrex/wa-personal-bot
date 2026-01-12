@@ -1,5 +1,5 @@
 import { getRandomNekoImage } from "../services/nekos.service.js";
-import { createImageMediaFromUrl } from "../utils/messageMedia.js";
+import { createImageMediaFromUrl } from "../utils/message.js";
 
 export async function nekoHandler(message, client) {
   try {
