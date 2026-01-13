@@ -1,5 +1,6 @@
 import { COMMAND_USAGE, COMMANDS } from "../constants/commands.js";
 import { getLatestCryptoQuoteBySymbol } from "../services/coinmarketcap.service.js";
+import { getTrendEmoji } from "../utils/crypto.js";
 
 export async function cryptoHandler(message, client) {
   try {
@@ -9,15 +10,19 @@ export async function cryptoHandler(message, client) {
       return client.sendMessage(message.from, COMMAND_USAGE[COMMANDS.PRICE]);
     }
 
-    const price = await getLatestCryptoQuoteBySymbol(symbolMessage);
+    const quote = await getLatestCryptoQuoteBySymbol(symbolMessage);
 
     const formattedPrice = new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
       maximumFractionDigits: 0,
-    }).format(price.priceIDR);
+    }).format(quote.priceIDR);
 
-    await client.sendMessage(message.from, `💰 *${price.name} (${price.symbol})*\n` + `Harga saat ini:\n🇮🇩 ${formattedPrice}`);
+    const trendEmoji = getTrendEmoji(quote.percentChange24h);
+    const chartText = `${trendEmoji} ${quote.percentChange24h.toFixed(2)}% (24h)`;
+    const messageText = `💰 *${quote.name} (${quote.symbol})*\n\n 🇮🇩 ${formattedPrice}\n ${chartText}`;
+
+    await client.sendMessage(message.from, messageText);
   } catch (error) {
     await client.sendMessage(message.from, `${error.message ?? "Maaf, Coinmarketcap sedang tidak tersedia 😔"}`);
   }

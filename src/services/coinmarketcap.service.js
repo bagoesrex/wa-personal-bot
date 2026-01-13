@@ -16,6 +16,7 @@ export async function getLatestCryptoQuoteBySymbol(symbol) {
       symbol: crypto.symbol,
       name: crypto.name,
       priceIDR: crypto.quote.IDR.price,
+      percentChange24h: crypto.quote.IDR.percent_change_24h,
     };
   } catch (error) {
     throw new Error(error.message ?? "Failed to get response from Gemini API");
