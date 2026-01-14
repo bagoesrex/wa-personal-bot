@@ -9,6 +9,8 @@ Made for personal use with simple commands like connection testing, sending funn
 - `!kucink` — Kirim pesan cukurukuk
 - `!neko` — Kirim gambar neko random
 - `!menu` — Tampilkan daftar perintah
+- `!ai <teks>` — Tanya AI
+- `!price <symbol>` — Cek harga crypto
 - `More features (coming soon)`
 
 ## 📋 Requirements
