@@ -10,7 +10,8 @@ export async function geminiHandler(message, client) {
     }
 
     const answer = await askGemini(userPrompt);
-    await client.sendMessage(message.from, answer);
+    const formattedAnswer = answer.replace(/\*\*(.*?)\*\*/g, "*$1*");
+    await client.sendMessage(message.from, formattedAnswer);
   } catch (error) {
     await client.sendMessage(message.from, "Maaf, AI sedang tidak tersedia 😔");
   }
