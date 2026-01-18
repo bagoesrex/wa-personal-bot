@@ -19,6 +19,10 @@ ${COMMANDS.KUCINK} — Pesan kecoags
 🤖 *AI & KRIPTO*
 ${COMMANDS.AI} <teks> — Tanya AI
 ${COMMANDS.PRICE} <symbol> — Cek harga crypto
+
+━━━━━━━━━━━━━━
+🖼️ *STICKER*
+${COMMANDS.STICKER} — Ubah gambar → sticker
 `;
 
   await client.sendMessage(message.from, messageText.trim());
