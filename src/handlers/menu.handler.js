@@ -7,11 +7,12 @@ export async function menuHandler(message, client) {
 ━━━━━━━━━━━━━━
 🔧 *UTILITY*
 ${COMMANDS.PING} — Tes koneksi bot
+${COMMANDS.ABOUT} — Tampilkan informasi bot 
 ${COMMANDS.MENU} — Tampilkan menu ini
 
 ━━━━━━━━━━━━━━
 😹 *KEONK*
-${COMMANDS.MYMINE} — Gambar pacar mymine gwej
+${COMMANDS.MYMINE} — Gambar mymine gwej
 ${COMMANDS.NEKO} — Gambar neko lucu
 ${COMMANDS.KUCINK} — Pesan kecoags
 

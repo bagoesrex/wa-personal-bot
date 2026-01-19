@@ -11,6 +11,7 @@ export const COMMANDS = {
   PRICE: `${PREFIX}price`,
   MYMINE: `${PREFIX}mymine`,
   STICKER: `${PREFIX}sticker`,
+  ABOUT: `${PREFIX}about`,
 };
 
 export const COMMAND_USAGE = {

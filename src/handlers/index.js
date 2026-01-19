@@ -1,4 +1,5 @@
 import { COMMANDS } from "../constants/commands.js";
+import { aboutHandler } from "./about.handler.js";
 import { cryptoHandler } from "./crypto.handler.js";
 import { geminiHandler } from "./gemini.handler.js";
 import { kucinkHandler } from "./kucink.handler.js";
@@ -28,6 +29,8 @@ export async function handleCommand(message, client) {
       return waifuHandler(message, client);
     case COMMANDS.STICKER:
       return stickerHandler(message, client);
+    case COMMANDS.ABOUT:
+      return aboutHandler(message, client);
 
     default:
       return client.sendMessage(message.from, "Unknown Command");
