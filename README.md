@@ -35,13 +35,42 @@ cd wa-personal-bot
 npm install
 ```
 
-### 3. Run the bot
+### 3. Konfigurasi Environments
+
+Copy `.env.example` to `.env`, then adjust the values as needed:
+
+```bash
+cp .env.example .env
+```
+
+example `.env`:
+
+```bash
+# App Environment
+NODE_ENV=development
+APP_NAME="bagoesrex personal bot"
+
+# Whatsapp Environments
+WA_DEVICE_NAME=meguphone
+WA_SESSION_PATH=./session
+
+# Gemini Environments
+GEMINI_API_KEY=your_gemini_api_key
+GEMINI_MODEL=gemini-2.5-flash
+
+# Coinmarketcap Environments
+COINMARKETCAP_API_KEY=your_coinmarketcap_api_key
+```
+
+### 4. Run the bot
 
 ```bash
 npm run start
 ```
 
-When first run, a QR code will appear on the terminal. Scan it with WhatsApp Web.
+On the first run, a QR code will appear in the terminal. Scan it using WhatsApp:
+
+**WhatsApp** → **Linked Devices** → **Link a Device**
 
 ---
 
