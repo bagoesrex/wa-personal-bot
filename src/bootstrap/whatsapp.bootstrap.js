@@ -5,6 +5,7 @@ import { validateMessage } from "../validators/message.schema.js";
 import { handleCommand } from "../handlers/index.js";
 import { isCommand } from "../middlewares/command.middleware.js";
 import { isNewMessage } from "../middlewares/message.middleware.js";
+import config from "../config/config.js";
 
 export function initWhatsapp(whatsappConfig) {
   const client = createWhatsappClient(whatsappConfig);
@@ -21,6 +22,7 @@ export function initWhatsapp(whatsappConfig) {
 
   client.once(WHATSAPP_EVENTS.READY, () => {
     console.log("✅ client is ready");
+    console.log(`🤖 Bot started with prefix: ${config.app.commandPrefix}`);
   });
 
   client.on(WHATSAPP_EVENTS.DISCONNECTED, () => {

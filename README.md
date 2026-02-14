@@ -3,14 +3,43 @@
 Personal WhatsApp bot based on [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js).  
 Made for personal use with simple commands like connection testing, sending funny pictures, and more.
 
+## ⚙️ Command Prefix
+
+This bot uses a dynamic command prefix based on environment:
+
+- Development mode → `$`
+- Production mode → `!`
+
+Prefix is configured automatically from:
+
+```
+commandPrefix: isDev ? "$" : "!"
+```
+
+### Example Usage (Production)
+
+```
+!menu
+!ai hello
+```
+
+### Example Usage (Development)
+
+```
+$menu
+$ai hello
+```
+
 ## 🚀 Feature
 
-- `!testprivate` — Tes koneksi bot
-- `!kucink` — Kirim pesan cukurukuk
-- `!neko` — Kirim gambar neko random
-- `!menu` — Tampilkan daftar perintah
-- `!ai <teks>` — Tanya AI
-- `!price <symbol>` — Cek harga crypto
+> Replace `<prefix>` with the active command prefix.
+
+- `<prefix>testprivate` — Tes koneksi bot
+- `<prefix>kucink` — Kirim pesan cukurukuk
+- `<prefix>neko` — Kirim gambar neko random
+- `<prefix>menu` — Tampilkan daftar perintah
+- `<prefix>ai <teks>` — Tanya AI
+- `<prefix>price <symbol>` — Cek harga crypto
 - `More features (coming soon)`
 
 ## 📋 Requirements
@@ -78,12 +107,5 @@ On the first run, a QR code will appear in the terminal. Scan it using WhatsApp:
 
 - Make sure you have logged in to WhatsApp on your browser beforehand.
 - Can be run on VPS, use `screen`, `tmux`, or `pm2` to keep the bot running after logout.
-
----
-
-## ⚠️ Notes
-
-- This bot is for personal use only.
-- Do not use it for spam or anything that violates WhatsApp policies.
 
 ---
